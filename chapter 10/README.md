@@ -16,7 +16,7 @@ For readers/users of *Suricata:An Operator's guide*, who want to be able to auto
 
 Note: in all of the commands above, **as well as in the plist file itself**, you will need to replace the text `[user]` with the name of user account you want to apply the SSLKEYLOGFILE environment variable for. **It is very highly recommended that you are currently logged in as the user you wish to configure TLS master secrets logging for, to ensure that the files and directories in question all have the correct file permissions. It is also very important that the user have write access to the file specified in the SSLKEYLOGFILE variable, or else macOS will not do anything at all.**
 - `keylogfile-ld.plist`: This is a plist file that is meant to run in `/Library/LaunchDaemons`. Adding this file to that directory should, in practice, apply the SSLKEYLOGFILE environment variable to all users. Adding this plist file to that directory will require `root` permissions to do so. Here are the commands you'll need to run:
-  - `sudo cp keylistfile-ld.plist /Library/LaunchDaemons`
+  - `sudo cp keylogfile-ld.plist /Library/LaunchDaemons`
   - `sudo launchctl load /Libary/Launchdaemons/keylogfile-ld.plist`
 
 Note: by default, the `keylogfile-ld.plist` will write to `/tmp/.keylogfile.txt`, which is one of the few places where every user on macOS has write access. But, as is customary on unix systems, the tmp directory is, well, *temporary*. So, either you will need to:
