@@ -19,9 +19,9 @@ Note: in all of the commands above, you will need to replace the text `[user]` w
   - `sudo cp keylogfile-ld.plist /Library/LaunchDaemons`
   - `sudo launchctl load /Libary/Launchdaemons/keylogfile-ld.plist`
 
-Note: by default, the `keylogfile-ld.plist` will write to `/tmp/.keylogfile.txt`, which is one of the few places where every user on macOS has write access. But, as is customary on unix systems, the tmp directory is, well, *temporary*. So, either you will need to:
-- Find a way to regularly rotate out the `.keylogfile.txt` out of /tmp into some sort of an archive
-- Create a directory in which everyone has write access to the file, and in so doing, perhaps modify the filename to include some sort of a timestamp and/or maybe individual usernames so that you don't have one GIANT TLS master secrets file.
-- Alternatively, the plist file could be modified to write the file to `/private/var/tmp/` or `/Users/Shared` instead.
+Note: by default, the `keylogfile-ld.plist` will write to `/tmp/.keylogfile-username-YY-mm-dd.txt`, which is one of the few places where every user on macOS has write access. But, as is customary on unix systems, the `/tmp` directory is, well, *temporary*. So, either you will need to:
+- Find a way to regularly rotate out the `.keylogfile-username-YY-mm-dd.txt` out of `/tmp` into some sort of an archive
+- Modify the script to place the keylog files into a directory in which all the users have creation and write access.
+  - Some users have recommended `/private/var/tmp`, or `/Users/Shared`.
 
 Additionally, it is very important to confirm that `/Library/LaunchDaemons/keylogfile-ld.plist` has file ownership of `root:wheel` and file permissions are `644` or `rw- r-- r--` for launchctl to actually accept it. the `sudo cp` command should handle this automatically when copying and adding the file to `/Library/LaunchDaemons`.
