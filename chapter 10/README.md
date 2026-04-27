@@ -24,4 +24,4 @@ Note: by default, the `keylogfile-ld.plist` will write to `/tmp/.keylogfile.txt`
 - Create a directory in which everyone has write access to the file, and in so doing, perhaps modify the filename to include some sort of a timestamp and/or maybe individual usernames so that you don't have one GIANT TLS master secrets file.
 - Alternatively, the plist file could be modified to write the file to `/private/var/tmp/` or `/Users/Shared` instead.
 
-Additionally, it is very important to confirm that `/Library/LaunchDaemonskeylogfile-ld.plist` has file ownership of `root:wheel` and file permissions are `644` or `rw- r-- r--` for launchctl to actually accept it. the `cp` command should handle this automatically when copying and adding the file to `/Library/LaunchDaemons`.
+Additionally, it is very important to confirm that `/Library/LaunchDaemons/keylogfile-ld.plist` has file ownership of `root:wheel` and file permissions are `644` or `rw- r-- r--` for launchctl to actually accept it. the `cp` command should handle this automatically when copying and adding the file to `/Library/LaunchDaemons`.
