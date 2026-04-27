@@ -9,7 +9,7 @@
     <string>sh</string>
     <string>-c</string>
     <string>
-    launchctl setenv SSLKEYLOGFILE /Users/[username]/.keylogfile.txt
+    launchctl setenv SSLKEYLOGFILE /Users/$(whoami)/.keylogfile$(whoami)-$(date +%Y-%m-%d).txt
     </string>
   </array>
   <key>RunAtLoad</key>
