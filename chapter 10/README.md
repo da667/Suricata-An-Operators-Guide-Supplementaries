@@ -26,9 +26,9 @@ Note: by default, the `keylogfile-ld-root.plist` will write to `/Users/Shared/.k
   
 
 Additionally, it is very important to confirm that `/Library/LaunchDaemons/keylogfile-ld-root.plist` has file ownership of `root:wheel` and file permissions are `644` or `rw- r-- r--` for launchctl to actually accept it. the `sudo cp` command should handle this automatically when copying and adding the file to `/Library/LaunchDaemons`.
--`keylogfile-la-root.plist`: This is a plist file that is meant to run in `/Library/LaunchAgents`. Adding this file to that directory should, theorhetically apply the SSLKEYLOGFILE environment variable to all users for programs launched from the macOS gui. Adding this plist file to that directory will require `root` permissions to do so. Here are the commands that you will need to run:
- -`suco cp keylogfile-la-root.plist /Library/LaunchAgents`
- -`sudo launchctl bootstrap system /Library/LaunchAgents/keylogfile-la-root.plist`
+- `keylogfile-la-root.plist`: This is a plist file that is meant to run in `/Library/LaunchAgents`. Adding this file to that directory should, theorhetically apply the SSLKEYLOGFILE environment variable to all users for programs launched from the macOS gui. Adding this plist file to that directory will require `root` permissions to do so. Here are the commands that you will need to run:
+ - `suco cp keylogfile-la-root.plist /Library/LaunchAgents`
+ - `sudo launchctl bootstrap system /Library/LaunchAgents/keylogfile-la-root.plist`
  Note: by default, the `keylogfile-ld-root.plist` will write to `/Users/Shared/.keylogfile.txt`, which is one of the few places where every user on macOS has write access. I would also recommend finding a way to do the following:
 - Find a way to regularly rotate out the `.keylogfile.txt` out of `/Users/Shared` into some sort of an archive
 - Find a way to rotate the file after it reaches a certain size, in order to make sure you dont have a gigantic keylogfile.
