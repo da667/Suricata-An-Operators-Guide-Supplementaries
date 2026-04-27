@@ -11,7 +11,6 @@ For readers/users of *Suricata:An Operator's guide*, who want to be able to auto
 - `keylogfile-la.plist`: This is a plist meant to run in a local user's `/Users/[username]/Library/LaunchAgents` directory. To use this file, you will need to run:
   - `mkdir /User/[username]/LaunchAgents`
   - `mv keylogfile-la.plist /Users/[username]/Library/LaunchAgents`
-  - `touch /Users/[username]/.keylogfile.txt`
   - `launchctl load /Users/[username]/Library/LaunchAgents/keylogfile-la.plist`
 
 Note: in all of the commands above, you will need to replace the text `[user]` with the name of user account you want to apply the SSLKEYLOGFILE environment variable for. **It is very highly recommended that you are currently logged in as the user you wish to configure TLS master secrets logging for, to ensure that the files and directories in question all have the correct file permissions. It is also very important that the user have write access to the file specified in the SSLKEYLOGFILE variable, or else macOS will not do anything at all.** Finally, the keylog file should automatically rotate each time the user logs in. The keylog file will be placed in the user's home directory, as a hidden file with the filename that looks like this: `.keylogfile-username-YY-mm-dd.txt`
