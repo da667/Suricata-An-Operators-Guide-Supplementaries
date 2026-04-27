@@ -9,7 +9,7 @@
       <string>launchctl</string>
       <string>setenv</string>
       <string>SSLKEYLOGFILE</string>
-      <string>/tmp/.keylogfile.txt</string>
+      <string>/Users/Shared/.keylogfile.txt</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
