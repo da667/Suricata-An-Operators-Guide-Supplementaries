@@ -475,7 +475,7 @@ touch /usr/local/var/lib/suricata/rules/local.rules &>> $logfile
 error_check 'touch of /usr/local/var/lib/suricata/rules/local.rules'
 
 print_status "enabling local.rules.."
-sed -i '/suricata.rules/a\ \ -\ local.rules' &>> $logfile
+sed -i '/suricata.rules/a\ \ -\ local.rules' /usr/local/etc/suricata/suricata.yaml &>> $logfile
 error_check 'enable of local.rules'
 
 chown -R suricata:suricata /usr/local/var/lib/suricata &>> $logfile
