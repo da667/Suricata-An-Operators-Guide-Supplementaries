@@ -1,4 +1,4 @@
-    %YAML 1.1
+%YAML 1.1
 ---
 af-packet:
   - interface: suricata_iface1
