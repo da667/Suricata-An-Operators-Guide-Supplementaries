@@ -1,0 +1,15 @@
+[Unit]
+Description=SSLProxy Service
+After=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/sslproxy.pid
+User=root
+ExecStartPre=/usr/sbin/ip link set up arp off multicast off dev ens20
+ExecStart=/usr/local/bin/sslproxy -f /etc/sslproxy/sslproxy.conf
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

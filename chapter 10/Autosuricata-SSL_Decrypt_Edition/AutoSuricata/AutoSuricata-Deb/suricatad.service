@@ -1,0 +1,23 @@
+[Unit]
+Description=Suricata Daemon
+After=syslog.target network-online.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/var/run/suricata.pid
+
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ExecStartPre=/usr/sbin/ip link set up promisc on dev suricata_iface1
+ExecStartPre=/usr/sbin/ip link set up arp off multicast off dev suricata_iface2
+ExecStartPre=/usr/sbin/ethtool -K suricata_iface1 rx off tx off gro off lro off
+ExecStartPre=/usr/sbin/ethtool -K suricata_iface2 rx off tx off gro off lro off
+ExecStart=/usr/local/bin/suricata -D -c /usr/local/etc/suricata/suricata.yaml -k none --af-packet --user=suricata
+
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target

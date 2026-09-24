@@ -1,0 +1,19 @@
+    %YAML 1.1
+---
+af-packet:
+  - interface: suricata_iface1
+    threads: 1
+    defrag: yes
+    checksum-checks: no
+    cluster-type: cluster_flow
+    cluster-id: 98
+    buffer-size: 64535
+    use-mmap: yes
+  - interface: suricata_iface2
+    threads: 1
+    defrag: yes
+    checksum-checks: no
+    cluster-type: cluster_flow
+    cluster-id: 97
+    buffer-size: 64535
+    use-mmap: yes
